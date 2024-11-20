@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Medication</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-4">
+    <h2 class="mb-4">Update Medicine</h2>
+
+    <form action="#" th:action="@{/updateMedication}" th:object="${Medication}"
+          method="POST" class="needs-validation" novalidate>
+
+        <input type="hidden" th:field="*{Id}" />
+
+        <div class="form-group">
+            <label for="medicineName">Medicine Name</label>
+            <input type="text" th:field="*{medicineName}" class="form-control" id="medicineName" placeholder="Enter Medicine Name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="dosage">Dosage</label>
+            <input type="text" th:field="*{dosage}" class="form-control" id="dosage" placeholder="Enter Dosage" required>
+        </div>
+
+        <div class="form-group">
+            <label for="quentity">Quantity</label>
+            <input type="email" th:field="*{quentity}" class="form-control" id="quentity" placeholder="Enter Quantity" required>
+        </div>
+
+
+
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+
+    <hr>
+
+    <a th:href="@{/viewMedication}" class="btn btn-secondary">Back to Medicine List</a>
+</div>
+</body>
+</html>

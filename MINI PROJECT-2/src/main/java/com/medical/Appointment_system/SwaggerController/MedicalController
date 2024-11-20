@@ -1,0 +1,69 @@
+
+
+   public class  MedicalController{
+
+      private AppointmentService appointmentService;
+      private DoctorService doctorService;
+      private MedicationService medicationService;
+      private UserService userService;
+
+
+    @GetMapping("viewAppointmentList")
+       public ResponseEntity<List> getAllAppointment(){
+         List<> appointmentList= appointmentService.getAllAppointment();
+           return new ResponseEntity<List>(appointmentList,HttpStatus.OK);
+       }
+
+       @PostMapping("/appointmentForm")
+       public ResponseEntity<String> save(@RequestBody("appointment")Appointment appointment){
+           appointmentService.bookAppointment(appointment);
+           return new ResponseEntity<String>("Saved Successfully",httpStatus.OK);
+       }
+
+       @GetMapping("/doctorAppointment")
+       public ResponseEntity<> bookAppointment(){
+           List<Doctor> listOfDoctor=doctorService.getAllDoctor();
+           return new ResponseEntity<>(listOfDoctor,HttpStatus.OK);
+       }
+
+       @GetMapping("/doctorBook/{id}")
+       public ResponseEntity<Appointment> doctorAppointment(@PathVariable("id")Long id, Model model){
+           Doctor doctor=doctorService.getDoctorById(id);
+           Appointment appointment=new Appointment();
+           appointment.setDoctor(doctor);
+           appointment.setDoctor_name(doctor.getDoctorName());
+           return new ResponseEntity<>(appointment ,HTTP STATUS.CREATED);
+       }
+
+         @GetMapping("/viewMedication")
+           public  ResponseEntity<List> hello(){
+               List<Medication> listOfMedication=medicationService.allMedicine();
+               return new ResponseEntity<>(listOFMedication,HTTP STATUS,OK);
+           }
+
+
+           @PostMapping("/addMedication")
+           public ResponseEntity<> addMedication(@Requestbody("Medication") Medication medication){
+               medicationService.saveMedication(medication);
+               return new ResponseEntity<>("Saved",HTTP STATUS.OK);
+           }
+           @PostMapping("/updateMedication")
+           public String updateMedication(@ModelAttribute("Medication") Medication medication){
+               medicationService.saveMedication(medication);
+               return "updatesuccess";
+           }
+
+           @DeleteMapping("/deleteMedication/{id}")
+           public ResponseEntity<> deleteMedication(@PathVariable("id") Long id, Model model) {
+                medicationService.delete(id);
+               return new ResponseEntity<>("DeletedSuccessfully",HTTP STATUS.OK);
+           }
+
+            @PostMapping("/register")
+           public responseEntity<> saveUser(@RequestBody("User") User user) {
+
+               User userInfo = userService.save(user);
+
+              return new ResponseEntity<>(userInfo,HTTP STATUS,OK);
+       }
+   }

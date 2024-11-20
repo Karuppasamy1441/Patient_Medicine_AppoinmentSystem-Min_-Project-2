@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>View Medicine</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .parent{
+            display:flex;
+            margin-left:100px;
+        }
+    </style>
+
+</head>
+<body>
+<div class="parent text-center mt-5 mx-5">
+    <img th:src="@{/Image/medicine_icon.png}" alt="medicine_image" src="" height="50" width="50">
+    <h2 class="text-center  mt-2 mx-2"><i>MEDICINE</i></h2>
+</div>
+<div class="container mt-5 text-center">
+
+    <a th:href="@{/addMedication}" class="btn btn-info">Add Medicine</a>
+    <table class="table table-striped mt-4">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Medicine Name</th>
+            <th>Dosage</th>
+            <th>Quantity</th>
+            <th>Actions</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="medicine : ${listOfMedication}">
+            <td th:text="${medicine.Id}"></td>
+            <td th:text="${medicine.medicineName}"></td>
+            <td th:text="${medicine.dosage}"></td>
+            <td th:text="${medicine.quentity}"></td>
+            <td>
+                <a th:href="@{/updateMedication/{id}(id=${medicine.Id})}" class="btn btn-warning">UPDATE</a>
+                <a th:href="@{/deleteMedication/{id}(id=${medicine.Id})}" class="btn btn-danger">DELETE</a>
+            </td>
+
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+<a href="/home" class="btn btn-primary mt-4 mx-5"> Back </a><br>
+</body>
+</html>

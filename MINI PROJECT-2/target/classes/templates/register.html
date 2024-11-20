@@ -1,0 +1,82 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <title>Register</title>-->
+<!--    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">-->
+
+<!--    <style>-->
+<!--        .parent{-->
+
+<!--    border:2px solid blue;-->
+<!--    width:300px;-->
+<!--    border-radius:10px;-->
+<!--    height:300px;-->
+<!--    margin-top:200px;-->
+<!--    margin-left:600px;-->
+<!--        }-->
+<!-- button{-->
+<!--     color:white;-->
+<!--     background-color:blue;-->
+<!--     border:1px solid blue;-->
+<!--     padding:5px 10px;-->
+<!--     border-radius:10px;-->
+<!-- }-->
+<!-- a {-->
+<!--    cursor:pointer;-->
+<!-- }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<div class=" text-center parent">-->
+<!--    <h2 class="text-info"><i>REGISTER</i></h2><br>-->
+<!--<form action="#" th:action="@{/register}" th:object="${user}" method="post">-->
+<!--    <input type="text" th:field="*{name}" placeholder="enter your name" required/><br><br>-->
+<!--    <input type="email" th:field="*{email}" placeholder="enter your email" required/><br><br>-->
+<!--    <input type="password" th:field="*{password}" placeholder="Password" required/><br><br>-->
+<!--    <button type="submit" class="text-grey">REGISTER</button>-->
+<!--</form>-->
+<!--    <p>Already have account? <a th:href="@{/login}" class="text-info">login</a></p>-->
+<!--</div>-->
+
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <h2 class="text-center mt-5">Register</h2>
+            <form th:action="@{/register}" method="post" th:object="${user}" class="mt-4">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" th:field="*{name}" required>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" th:field="*{email}" required>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" th:field="*{password}" required>
+                </div>
+                <button type="submit" class="btn btn-primary mt-4 w-100">Register</button>
+            </form>
+            <div th:if="${session.msg}" class="alert alert-info mt-3">
+                <p th:text="${session.msg}"></p>
+            </div>
+            <div class="text-center mt-3">
+                <span>Already have an account! </span><a th:href="@{/}">LoginPage</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

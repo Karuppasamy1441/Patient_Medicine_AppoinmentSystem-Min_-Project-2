@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>View Medicine</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .parent{
+        display:flex;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="parent mx-5">
+        <img th:src="@{/Image/appointment.jpeg}" alt="" src="icon">
+        <h1 class="text-center text-primary mt-5"><i>APPOINTMENT LIST</i></h1><br>
+    </div>
+
+    <table class="table table-striped mt-5">
+        <thead>
+        <tr>
+
+            <th>Appointment_Id</th>
+            <th>DoctorName</th>
+            <th>AppointmentDate</th>
+            <th>MedicalReason</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="appointment:${listOfAppointment}">
+            <td th:text="${appointment.appointmentId}"></td>
+            <td th:text="${appointment.doctor_name}"></td>
+            <td th:text="${appointment.appointmentDate}"></td>
+            <td th:text="${appointment.medicalReason}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<a href="/home" class="btn btn-primary mt-3 mx-5"> Back </a><br>
+</body>
+</html>

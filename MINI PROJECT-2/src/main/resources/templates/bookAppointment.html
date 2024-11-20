@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Book Appointment</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h2>Book Appointment</h2>
+    <form th:action="@{/appointmentForm}" method="post" th:object="${appointment}" class="mt-4">
+        <div class="form-group">
+            <label for="doctorId">Doctor Id:</label>
+            <input type="text" class="form-control" th:field="*{doctor.doctorId}" id="doctorId" readonly/>
+        </div>
+
+        <div class="form-group">
+            <label for="doctor_name">Doctor Name:</label>
+                <input type="text" class="form-control" th:field="*{doctor_name}" id="doctor_name" readonly/>
+        </div>
+
+        <div class="form-group">
+            <label for="appointmentDate">Appointment Date:</label>
+            <input type="date" class="form-control" th:field="*{appointmentDate}" id="appointmentDate" required/>
+        </div>
+
+        <div class="form-group">
+            <label for="medicalReason">Medical Reason:</label>
+            <input type="text" class="form-control"  th:field="*{medicalReason}" id="medicalReason" required/>
+        </div>
+
+
+        <button type="submit" class="btn btn-success"><i>Book</i></button>
+    </form>
+</div>
+<a th:href="@{/doctorAppointment}" class="btn btn-primary mt-3 mx-5"> Back </a><br>
+
+</body>
+</html>

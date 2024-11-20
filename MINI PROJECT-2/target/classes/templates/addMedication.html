@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Medication</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-4">
+    <h1 class="mb-4">ADD MEDICINE DETAILS</h1>
+    <form th:action="@{/addMedication}" method="post" th:object="${Medication}" class="needs-validation" novalidate>
+
+        <div class="form-group">
+            <label for="medicineName">Medicine Name:</label>
+            <input type="text" class="form-control"  th:field="*{medicineName}" id="medicineName" placeholder="Enter Medicine Name" required/>
+        </div>
+
+        <div class="form-group">
+            <label for="dosage">Dosage:</label>
+            <input type="text" class="form-control" th:field="*{dosage}" id="dosage" placeholder="Enter Employee Dosage" required/>
+        </div>
+
+        <div class="form-group">
+            <label for="quentity" >Quantity:</label>
+            <input type="text" class="form-control"  th:field="*{quentity}" id="quentity" placeholder="Enter Quantity" required/>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form><br><br>
+
+    <a th:href="@{/viewMedication}" class="btn btn-secondary">Back to Medicine List</a>
+</div>
+
+</body>
+</html>

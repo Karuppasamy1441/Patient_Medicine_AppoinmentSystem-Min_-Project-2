@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>View Medicine</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .parent{
+        display:flex;
+        }
+        .image{
+        border-radius:150px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="parent mx-5">
+        <img th:src="@{Image/doctor.jpeg}" alt="Image" src=""  class="image">
+        <h1 class="text-center text-primary mx-3 mt-5 fs-3"><i>DOCTORS</i></h1><br>
+    </div>
+
+    <table class="table table-striped mt-5">
+        <thead>
+        <tr>
+
+            <th>DoctorId</th>
+            <th>doctorName</th>
+            <th>specialization</th>
+            <th>consultationFee</th>
+            <th>availableSlot;</th>
+            <th>availableTime</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="doctor: ${listOfDoctor}">
+            <td th:text="${doctor.doctorId}"></td>
+            <td th:text="${doctor.doctorName}"></td>
+            <td th:text="${doctor.specialization}"></td>
+            <td th:text="${doctor.consultationFee}"></td>
+            <td th:text="${doctor.availableSlot}"></td>
+            <td th:text="${doctor.availableTime}"></td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>
+<a href="/home" class="btn btn-primary mt-4 mx-5"> Back </a><br>
+</body>
+</html>

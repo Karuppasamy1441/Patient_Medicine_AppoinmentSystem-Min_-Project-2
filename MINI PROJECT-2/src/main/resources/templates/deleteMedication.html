@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Delete Medication</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="text-center mt-5">
+<h1>Delete Medication</h1>
+<p th:text="${message}" class="text-danger">Medication deleted successfully.</p>
+<a th:href="@{/viewMedication}" class="btn btn-info mx-5 ">Back</a>
+</div>
+</body>
+</html>

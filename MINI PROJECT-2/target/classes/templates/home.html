@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .parent{
+          background-image:url("/Image/hospital.jpeg");
+          background-position: center;
+          background-size:cover;
+          background-repeat: no-repeat;
+          height:95vh;
+        }
+        .logout{
+          position: absolute;
+          right: 20px;
+          top: 100px;
+        }
+
+        .link{
+               margin:20px;
+               display: flex;
+               height: 50px;
+               border-radius:10px;
+        }
+        .link1{
+          background-color:grey;
+          color:white;
+        text-align:center;
+        border:2px solid black;
+        border-radius:10px;
+        margin-left:10px;
+        padding:10px;
+        }
+
+    </style>
+</head>
+<body >
+<div class="parent ">
+    <h1 class="mt-3 text-center text-secondary">GIVE_LIFE HOSPITALS</h1>
+<div class="logout">
+    <a class="btn btn-danger" th:href="@{/login}"><i>LOGOUT</i></a>
+</div>
+<div class="link">
+    <a th:href="@{/viewDoctor}" class=" mx-5 mt-2 link1">View Doctors</a><br>
+    <a th:href="@{/doctorAppointment}" class=" mx-4 mt-2 link1">Book Appointment</a><br>
+    <a th:href="@{/viewAppointmentList}" class=" mx-4 mt-2 link1">View Appointment</a><br>
+    <a th:href="@{/viewMedication}" class=" mx-4 mt-2 link1">View Medicines</a><br>
+</div>
+</div>
+</body>
+</html>
